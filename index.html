@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSIC CAFE BAR TIME REMEMBERED | 津和野</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Noto Serif JP', serif;
+            background-color: #0c0a09;
+            color: #e7e5e4;
+            scroll-behavior: smooth;
+        }
+        .serif { font-family: 'Noto Serif JP', serif; }
+        .accent-gold { color: #c5a059; }
+        .bg-accent-gold { background-color: #c5a059; }
+        .border-gold { border-color: #c5a059; }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Image Overlay */
+        .hero-overlay {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(12,10,9,1));
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0c0a09; }
+        ::-webkit-scrollbar-thumb { background: #c5a059; border-radius: 10px; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
+        <div class="text-xl md:text-2xl font-semibold tracking-widest serif accent-gold">TIME REMEMBERED</div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+            <a href="#home" class="hover:text-[#c5a059] transition">Home</a>
+            <a href="#concept" class="hover:text-[#c5a059] transition">Concept</a>
+            <a href="#menu" class="hover:text-[#c5a059] transition">Menu</a>
+            <a href="#access" class="hover:text-[#c5a059] transition">Access</a>
+        </div>
+        <button class="md:hidden text-2xl focus:outline-none" id="menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-stone-950 z-40 hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest serif">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#concept" class="mobile-link">Concept</a>
+        <a href="#menu" class="mobile-link">Menu</a>
+        <a href="#access" class="mobile-link">Access</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <!-- 音楽と静寂をイメージした背景 (コントラバス) -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558584723-c8568a020777?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="relative text-center px-4 fade-in">
+            <p class="text-xs md:text-sm tracking-[0.5em] mb-4 uppercase">Music Cafe Bar</p>
+            <h1 class="text-1xl sm:text-3xl md:text-7xl serif mb-8 leading-normal md:leading-tight">津和野で過ごした瞬間が、<br>忘れられない時間になりますように。</h1>
+            <a href="#concept" class="inline-block border border-gold px-10 py-3 text-sm tracking-[0.3em] hover:bg-accent-gold hover:text-stone-950 transition-all duration-500">OUR STORY</a>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="concept" class="py-24 px-6 max-w-5xl mx-auto">
+        <div class="fade-in">
+            <h2 class="text-3xl md:text-4xl serif text-center mb-16">Concept</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-left space-y-6 leading-relaxed text-stone-300">
+                    <p class="accent-gold serif text-lg">Bill Evansへの敬愛を込めて</p>
+                    <p>店名は、敬愛するピアニスト Bill Evans の名曲「Time Remembered」から。津和野の街角、かつてスナックだった場所を改装し、心地よい音楽と静寂が共存する場所へと生まれ変わりました。</p>
+                    <p>直感を信じ、地元・津和野で再出発したオーナーが綴る、音楽・料理・そして旅の記憶が詰まった空間です。</p>
+                    <p>かつての記憶を大切にしながら、ここでまた新しい「忘れられない時間」を皆様と共に紡いでいきたい。そんな願いを込めています。</p>
+                </div>
+                <div class="relative aspect-square bg-stone-900 overflow-hidden rounded-lg">
+                    <!-- 静物としてのバイオリン -->
+                    <img src="./img/logo.png" alt="Violin and Sheet Music" class="object-cover w-full h-full hover:scale-105 transition duration-1000">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 bg-stone-900 bg-opacity-30">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl serif text-center mb-16 fade-in">Selections</h2>
+            
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Cafe -->
+                <div class="fade-in">
+                    <h3 class="text-xl serif accent-gold border-b border-stone-800 pb-4 mb-8">Coffee & Sweets</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-end">
+                            <div>
+                                <span class="block text-lg">Hand Drip Coffee</span>
+                                <span class="text-xs text-stone-500 italic">オーナー厳選の豆を丁寧にドリップ</span>
+                            </div>
+                            <span class="text-gold">¥650</span>
+                        </li>
+                        <li class="flex justify-between items-end">
+                            <div>
+                                <span class="block text-lg">Single Origin Selection</span>
+                                <span class="text-xs text-stone-500 italic">季節の移ろいを感じるシングルオリジン</span>
+                            </div>
+                            <span class="text-gold">¥750</span>
+                        </li>
+                        <li class="flex justify-between items-end">
+                            <div>
+                                <span class="block text-lg">Homemade Cake</span>
+                                <span class="text-xs text-stone-500 italic">コーヒーに寄り添う自家製スイーツ</span>
+                            </div>
+                            <span class="text-gold">¥600</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bar -->
+                <div class="fade-in">
+                    <h3 class="text-xl serif accent-gold border-b border-stone-800 pb-4 mb-8">Bar & Spirits</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-end">
+                            <div>
+                                <span class="block text-lg">"Time Remembered" Cocktail</span>
+                                <span class="text-xs text-stone-500 italic">深い記憶を呼び覚ます、シグネチャーカクテル</span>
+                            </div>
+                            <span class="text-gold">¥1,200</span>
+                        </li>
+                        <li class="flex justify-between items-end">
+                            <div>
+                                <span class="block text-lg">Craft Gin & Tonic</span>
+                                <span class="text-xs text-stone-500 italic">旅先で見つけたこだわりのボタニカル</span>
+                            </div>
+                            <span class="text-gold">¥1,100</span>
+                        </li>
+                        <li class="flex justify-between items-end">
+                            <div>
+                                <span class="block text-lg">Vintage Whiskey</span>
+                                <span class="text-xs text-stone-500 italic">ジャズの旋律と共に嗜む一杯</span>
+                            </div>
+                            <span class="text-gold">¥1,300〜</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Divider -->
+    <section class="h-[60vh] relative overflow-hidden flex items-center justify-center">
+        <!-- アコースティックギターの曲線美 -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-fixed bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative text-center fade-in">
+            <h3 class="serif text-3xl md:text-5xl italic opacity-80">"Peace Piece in Tsuwano"</h3>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section id="access" class="py-24 px-6 bg-stone-950">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 fade-in">
+            <div class="flex-1 space-y-8">
+                <h2 class="text-3xl serif mb-8">Access</h2>
+                <div>
+                    <h4 class="text-gold text-xs uppercase tracking-widest mb-2">Location</h4>
+                    <p class="text-lg">島根県鹿足郡津和野町<br><span class="text-stone-400 text-sm">（旧スナック跡地・山陰の小京都）</span></p>
+                </div>
+                <div>
+                    <h4 class="text-gold text-xs uppercase tracking-widest mb-2">Grand Open</h4>
+                    <p>2025.11.23 (Sun)</p>
+                </div>
+                <div>
+                    <h4 class="text-gold text-xs uppercase tracking-widest mb-2">Philosophy</h4>
+                    <p class="italic text-stone-400">「人生一度きり、後悔したくないから。」</p>
+                </div>
+                <div class="flex space-x-4 pt-4">
+                    <a href="https://lit.link/T_remembered" target="_blank" class="border border-gold px-6 py-2 text-xs tracking-widest hover:bg-accent-gold hover:text-stone-950 transition">Linktree</a>
+                </div>
+            </div>
+            <div class="flex-1 min-h-[500px] md:min-h-[300px] bg-stone-900 relative rounded-lg overflow-hidden border border-stone-800">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.3269008958287!2d131.7738499!3d34.4692305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355b2fe95aedd2d3%3A0x9b148fd9e2163c86!2sMUSIC%20CAFE%20BAR%20TIME%20REMEMBERED!5e0!3m2!1sja!2sjp!4v1769497633110!5m2!1sja!2sjp" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="absolute inset-0 w-full h-full"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-stone-900 text-center">
+        <div class="text-gold serif text-2xl tracking-[0.2em] mb-6">TIME REMEMBERED</div>
+        <p class="text-stone-500 text-sm mb-8 tracking-widest serif">MUSIC CAFE BAR</p>
+        <p class="text-[10px] text-stone-600 tracking-widest">&copy; 2025 MUSIC CAFE BAR TIME REMEMBERED. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-stone-950/95', 'backdrop-blur-sm', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('bg-stone-950/95', 'backdrop-blur-sm', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
